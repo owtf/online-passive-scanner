@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OWASP OWTF Summary Report</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="OWASP OWTF Summary Report">
+	    <meta name="author" content="OWASP OWTF Team">
+	
+	
+	    <!-- styles -->
+	    <link id="skin_css" href="includes/css/skins/default.css" rel="stylesheet">
+	    <link id="skin_css" href="includes/css/stylesheet.css" rel="stylesheet">
+	    <link href="includes/css/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
+	    <link href="includes/css/bootstrap-responsive.css" rel="stylesheet" >
+	    <link href="includes/js/aloha/css/aloha.css" rel="stylesheet" >
+	    <link href="includes/css/button-stylesheet.css" rel="stylesheet">
+	    
+	    <style>
+	    .nav-tabs-container {
+	                            padding: 3px;
+	                            border: 1px solid @grayLight;
+	                            .border-radius(4px);
+	                        }
+	    </style>
+	    </style>
+	    </style>
+  
+  
+  <script>
+
+      function doStuff()
+      {
+		var inp = document.getElementById('someInput');
+		q = inp.value;
+		var query = q.toString()
+		//alert(query);
+        var request = "report.html?q=" + query;
+        alert(request);
+        //window.location=request;
+      }
+
+  </script>
+</head>
+
+<html>
+
+
+<body class="container">
+		<!-- start page header -->
+	    <div class="page-header">
+	    	<h2>
+	    		<a href="http://www.owtf.org" >
+	    			<img src="includes/img/logo_dark.png" class="img-rounded" alt="OWASP_OWTF_LOGO">
+	    		</a> 
+	    		Summary Report 
+	    		<small>
+				Version <sup>0.45.0</sup>
+				, Release <sup>Winter Blizzard</sup>
+				<span class="hidden">, Seed <sup><span id="seed"> 2NfaMaxkF_ </span></sup></span>
+				</small>
+				
+	    		<a class="btn btn-info pull-right filter disabled" href="#" rel="tooltip" data-original-title="Help!" data-placement="bottom"><i class="icon-question-sign icon-light"></i></a>
+	    	</h2>
+	    </div>
+		<!-- end page header -->
+
+
+
+  <div id="someDiv">
+    Enter the Target URL
+  </div>
+
+  <br><br>
+  <form action="report.html" method="GET">
+    <input type="text" id="q" name="q">
+    <input type="submit" value="Scan" id="submit" class="button">
+  </form>
+  <br>    
+</html>
