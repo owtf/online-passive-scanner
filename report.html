@@ -4,7 +4,7 @@
 		
 		
 		<script language="javascript" type="text/javascript">
-			var parameters = location.search.substring(1).split("&");
+			var parameters = location.hash.substring(1).split("&");
 			var temp = parameters[0].split("=");
 			q = unescape(temp[1]);
 			var date = new Date();

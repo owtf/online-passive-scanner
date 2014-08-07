@@ -32,14 +32,11 @@
 
       function doStuff()
       {
-		var inp = document.getElementById('someInput');
+		var inp = document.getElementById('q');
 		q = inp.value;
-		var query = q.toString()
-		//alert(query);
-        var request = "report.html?q=" + query;
-        alert(request);
-        //window.location=request;
-      }
+		window.location.href="report.html#q="+q
+     }
+		
 
   </script>
 </head>
@@ -73,9 +70,9 @@
   </div>
 
   <br><br>
-  <form action="report.html" method="GET">
+  <form action="javascript:doCrack()">
     <input type="text" id="q" name="q">
-    <input type="submit" value="Scan" id="submit" class="button">
+    <input type="button" value="Scan" id="submit" class="button" onclick="doStuff()">
   </form>
   <br>    
 </html>
