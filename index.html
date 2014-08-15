@@ -33,8 +33,21 @@
       function doStuff()
       {
 		var inp = document.getElementById('q');
-		q = inp.value;
-		window.location.href="report.html#q="+q
+		var reg = new RegExp('[\\w$]');
+		var regx = new RegExp('[-.:/]');
+		d = inp.value;
+		for(i=0;i<d.length;i++) {
+				
+		if(!reg.test(d.charAt(i)))
+		{
+		  if(!regx.test(d.charAt(i)))
+		  {
+			alert("Please Enter a valid Target URL");
+			return ;
+		  }
+		}
+		}
+		window.location.href="report.html#q="+d
      }
 		
 
