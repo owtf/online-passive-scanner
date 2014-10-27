@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 
-
+    
     <script language="javascript" type="text/javascript">
+        if (window.location.protocol != "https:")
+            window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+        
         var parameters = location.hash.substring(1).split("&");
         var k = parameters[0];
         var temp = k.split("=");
