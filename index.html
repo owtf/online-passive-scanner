@@ -9,6 +9,7 @@
 	    <meta name="author" content="OWASP OWTF Team">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.1.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="includes/css/flat-ui.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <script>
             var host = "owtf.github.io/online-passive-scanner";
             if ((host == window.location.host) && (window.location.protocol != "https:"))
@@ -44,7 +45,7 @@
   <div class="form-group">
     <input type="text" id="q" name="q" placeholder="eg: http://www.google.com"class="form-control">
   </div>
-  <button value="Scan" id="submit" onclick="doStuff()" class="btn btn-primary btn-lg">Scan</button>
+  <button value="Scan" id="submit" onclick="validateInput()" class="btn btn-primary btn-lg">Scan</button>
 </div>
 </form>
     <div id="footer">
@@ -53,6 +54,7 @@
         </p>
     </div>
  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/bootstrap/3.1.0/js/bootstrap.min.js"></script>
      <script>
       function validateInput()

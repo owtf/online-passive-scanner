@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="includes/css/flat-ui.css">-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/2.3.1/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/2.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script language="javascript" type="text/javascript">
       var host = "owtf.github.io/online-passive-scanner";
       if ((host == window.location.host) && (window.location.protocol != "https:"))
@@ -149,33 +153,29 @@
         }
     </style>
 </head>
-<body class="container">
-<!-- start page header -->
-<div class="page-header">
-    <h2>
-        <a href="http://www.owtf.org" >
-            <img src="includes/img/logo_dark.png" class="img-rounded" alt="OWASP_OWTF_LOGO">
-        </a>
-        Summary Report
-        <small>
-            Version <sup>0.45.0</sup>
-            , Release <sup>Winter Blizzard</sup>
-            <span class="hidden">, Seed <sup><span id="seed"> rrhmreggdr </span></sup></span>
-        </small>
-
-        <a class="btn btn-info pull-right filter disabled" href="#" rel="tooltip" data-original-title="Help!" data-placement="bottom"><i class="icon-question-sign icon-light"></i></a>
-    </h2>
-</div>
-<!-- end page header -->
+<body>
+       <div class="container">
+        <a href="https://github.com/owtf/online-passive-scanner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+        <!-- start page header -->
+        <div class="page-header row">
+            <div class="col col-md-3">
+                <a href="http://www.owtf.org" >
+                    <img src="https://camo.githubusercontent.com/8aec8e41ae6063229d6bd875da348e3c3ae81538/68747470733a2f2f7777772e6f776173702e6f72672f696d616765732f372f37332f4f5754464c6f676f2e706e67" class="img-rounded" height="200" width="150" alt="OWASP_OWTF_LOGO">
+                </a>
+            </div>
+            <div class="col col-md-9">
+                <h5>                Online Passive Scanner
+                <small>
+                Version: 1.0.1
+                , Release <b>Lionheart</b>
+                <span class="hidden">, Seed <sup><span class="hidden" id="seed"> 2NfaMaxkF_ </span></sup></span>
+                </small></h5>
+            </div>
+        </div>
+        <!-- end page header -->
 <!--  navbar row-->
 <div class="row">
-    <div class="span12">
-        <div class="row-fluid">
-
-            <div class="navbar navbar-inverse" >
-                <div class="navbar-inner">
-                    <a class="brand" href="#">Summary</a>
-                    <ul id="mainmenu" class="nav">
+        <ul class="nav nav-pills nav-justified">
                         <li class="active"><a href="#main" data-toggle="tab">Home</a></li>
                         <li class=""><a href="#filter" data-toggle="tab">Browse</a></li>
                         <li><a href="#review" data-toggle="tab">Review</a></li>
@@ -256,14 +256,6 @@
 
                         </li>
                     </ul>
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>
-</div>
 <!--  end navbar row -->
 
 <!-- start Content -->
@@ -1051,16 +1043,11 @@
         -
         <a href="http://github.com/owtf/owtf"> @github <i class="icon-github-alt"></i></a>
     </p>
-</div>
+    </div></div></div>
 <!--  end footer -->
-
-
-
-
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="includes/js/jquery.js"></script>
-<script src="includes/js/bootstrap.js"></script>
-<script src="includes/js/style_switcher.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 <script>
     $('.tooltip_sidebar').tooltip();
