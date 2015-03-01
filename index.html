@@ -39,12 +39,12 @@
     <h3 style="text-align: left">Enter the Target URL</h3>
   </div>
 
-<form role="form">
+<form role="form" action="javascript:doCrack()">
 <div class="form-inline" >
   <div class="form-group">
-    <input type="text" class="form-control" id="hostname" placeholder="example.com" autocapitalize="off" autocorrect="off">
+    <input type="text" id="q" name="q" placeholder="eg: http://www.google.com"class="form-control">
   </div>
-  <button type="submit" class="btn btn-primary btn-lg" id="go">Go!</button>
+  <button value="Scan" id="submit" onclick="doStuff()" class="btn btn-primary btn-lg">Scan</button>
 </div>
 </form>
     <div id="footer">
