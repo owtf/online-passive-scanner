@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>OWASP OWTF Summary Report</title>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="description" content="OWASP OWTF Summary Report">
-	    <meta name="author" content="OWASP OWTF Team">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.1.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="includes/css/flat-ui.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <script>
-            var host = "owtf.github.io/online-passive-scanner";
-            if ((host == window.location.host) && (window.location.protocol != "https:"))
-            window.location.protocol = "https:";
-        </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OWASP OWTF Summary Report">
+  <meta name="author" content="OWASP OWTF Team">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="includes/css/flat-ui.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script>
+    var host = "owtf.github.io/online-passive-scanner";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+      window.location.protocol = "https:";
+  </script>
 </head>
-<body>
-       <div class="container">
-        <a href="https://github.com/owtf/online-passive-scanner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-        <!-- start page header -->
-        <div class="page-header row">
-            <div class="col col-md-3">
-                <a href="http://www.owtf.org" >
-                    <img src="https://camo.githubusercontent.com/8aec8e41ae6063229d6bd875da348e3c3ae81538/68747470733a2f2f7777772e6f776173702e6f72672f696d616765732f372f37332f4f5754464c6f676f2e706e67" class="img-rounded" height="200" width="150" alt="OWASP_OWTF_LOGO">
-                </a>
-            </div>
-            <div class="col col-md-9">
-                <h5>                Online Passive Scanner
-                <small>
-                Version: 1.0.1
-                , Release <b>Lionheart</b>
-                <span class="hidden">, Seed <sup><span class="hidden" id="seed"> 2NfaMaxkF_ </span></sup></span>
-                </small></h5>
-            </div>
-        </div>
-        <!-- end page header -->
-  <div class="row" id="targetbar">
-    <h3 style="text-align: left">Enter the Target URL</h3>
-  </div>
 
-<form role="form" action="javascript:doCrack()">
-<div class="form-inline" >
-  <div class="form-group">
-    <input type="text" id="q" name="q" placeholder="eg: http://www.google.com"class="form-control">
-  </div>
-  <button value="Scan" id="submit" onclick="validateInput()" class="btn btn-primary btn-lg">Scan</button>
-</div>
-</form>
-    <div id="footer">
-        <p>
-            Built during GSoC 2014 <a href="//owtf.github.io">OWTF</a>.
-        </p>
+<body style="overflow-x: hidden">
+  <div class="container">
+    <a href="https://github.com/owtf/online-passive-scanner"><img
+        style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+        alt="Fork me on GitHub"
+        data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <!-- start page header -->
+    <div class="page-header row">
+      <div class="col col-md-3">
+        <a href="http://www.owtf.org">
+          <img src="./images/OWTFLogo.png" class="img-rounded" height="200" width="150" alt="OWASP_OWTF_LOGO">
+        </a>
+      </div>
+      <div class="col col-md-9">
+        <h5> Online Passive Scanner
+          <small>
+            Version: 1.0.1
+            , Release <b>Lionheart</b>
+            <span class="hidden">, Seed <sup><span class="hidden" id="seed"> 2NfaMaxkF_ </span></sup></span>
+          </small></h5>
+      </div>
     </div>
- </div>
+    <!-- end page header -->
+    <div class="row" id="targetbar">
+      <h3 style="text-align: center">Enter the Target URL</h3>
+    </div>
+
+    <form role="form" action="javascript:doCrack()">
+      <div class="form-inline" style="text-align: center">
+        <div class="form-group">
+          <input type="text" id="q" name="q" placeholder="eg: http://www.google.com" class="form-control">
+        </div>
+        <button value="Scan" id="submit" onclick="validateInput()" class="btn btn-primary btn-lg">Scan</button>
+      </div>
+    </form>
+    <div id="footer">
+      <p>
+        Built during GSoC 2014 <a href="//owtf.github.io">OWTF</a>.
+      </p>
+    </div>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-     <script>
-      function validateInput()
-      {
-        var inp = document.getElementById('q');
-        var reg = new RegExp('[\\w$]');
-        var regx = new RegExp('[-.:/]');
-        d = inp.value;
-        for(i=0;i<d.length;i++) {
+  <script>
+    function validateInput() {
+      var inp = document.getElementById('q');
+      var reg = new RegExp('[\\w$]');
+      var regx = new RegExp('[-.:/]');
+      d = inp.value;
+      for (i = 0; i < d.length; i++) {
 
-        if(!reg.test(d.charAt(i)))
-        {
-          if(!regx.test(d.charAt(i)))
-          {
+        if (!reg.test(d.charAt(i))) {
+          if (!regx.test(d.charAt(i))) {
             alert("Please Enter a valid Target URL");
-            return ;
+            return;
           }
         }
-        }
-        window.location.href="report.html#q="+d
-     }
+      }
+      window.location.href = "report.html#q=" + d
+    }
   </script>
 </body>
+
 </html>
