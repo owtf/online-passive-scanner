@@ -1,80 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>OWASP OWTF Summary Report</title>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="description" content="OWASP OWTF Summary Report">
-	    <meta name="author" content="OWASP OWTF Team">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.1.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="includes/css/flat-ui.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <script>
-            var host = "owtf.github.io/online-passive-scanner";
-            if ((host == window.location.host) && (window.location.protocol != "https:"))
-            window.location.protocol = "https:";
-        </script>
-</head>
-<body>
-       <div class="container">
-        <a href="https://github.com/owtf/online-passive-scanner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-        <!-- start page header -->
-        <div class="page-header row">
-            <div class="col col-md-3">
-                <a href="http://www.owtf.org" >
-                    <img src="https://camo.githubusercontent.com/8aec8e41ae6063229d6bd875da348e3c3ae81538/68747470733a2f2f7777772e6f776173702e6f72672f696d616765732f372f37332f4f5754464c6f676f2e706e67" class="img-rounded" height="200" width="150" alt="OWASP_OWTF_LOGO">
-                </a>
-            </div>
-            <div class="col col-md-9">
-                <h5>                Online Passive Scanner
-                <small>
-                Version: 1.0.1
-                , Release <b>Lionheart</b>
-                <span class="hidden">, Seed <sup><span class="hidden" id="seed"> 2NfaMaxkF_ </span></sup></span>
-                </small></h5>
-            </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="OWASP OWTF Summary Report" />
+    <meta name="author" content="OWASP OWTF Team" />
+    <title>OWASP OWTF Summary Report</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #f5f7fa;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .github-ribbon {
+        position: fixed;
+        top: 1rem;
+        right: -3.5rem;
+        display: block;
+        width: 12rem;
+        padding: 0.75rem 0;
+        background: linear-gradient(135deg, #1f2328, #24292f);
+        color: #f8fbff;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transform: rotate(45deg);
+        transform-origin: top right;
+        box-shadow: 0 6px 12px rgba(15, 23, 42, 0.35);
+        z-index: 1000;
+      }
+
+      .github-ribbon:focus-visible {
+        outline: 2px solid #f0f6ff;
+        outline-offset: 2px;
+      }
+
+      @media (max-width: 576px) {
+        .github-ribbon {
+          width: 10rem;
+          right: -3rem;
+          font-size: 0.75rem;
+        }
+      }
+
+      .page-header img {
+        max-width: 150px;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+        margin-bottom: 0;
+      }
+
+      #targetbar h2 {
+        font-weight: 600;
+      }
+
+      .error-message {
+        display: none;
+      }
+    </style>
+    <script>
+      const isGithubPages =
+        window.location.hostname === "owtf.github.io" &&
+        window.location.pathname.startsWith("/online-passive-scanner");
+
+      if (isGithubPages && window.location.protocol === "http:") {
+        const { host, pathname, search, hash } = window.location;
+        window.location.replace(`https://${host}${pathname}${search}${hash}`);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container py-5">
+      <a
+        href="https://github.com/owtf/online-passive-scanner"
+        aria-label="Fork me on GitHub"
+        class="github-ribbon"
+      >
+        Fork me on GitHub
+      </a>
+      <header class="page-header row align-items-center g-4 mb-5">
+        <div class="col-md-3 text-center text-md-start">
+          <a href="https://owasp.org/www-project-owtf/">
+            <img
+              src="images/owtf-logo.svg"
+              class="img-fluid rounded"
+              alt="OWASP OWTF Logo"
+              width="150"
+              height="150"
+            />
+          </a>
         </div>
-        <!-- end page header -->
-  <div class="row" id="targetbar">
-    <h3 style="text-align: left">Enter the Target URL</h3>
-  </div>
-
-<form role="form" action="javascript:doCrack()">
-<div class="form-inline" >
-  <div class="form-group">
-    <input type="text" id="q" name="q" placeholder="eg: http://www.google.com"class="form-control">
-  </div>
-  <button value="Scan" id="submit" onclick="validateInput()" class="btn btn-primary btn-lg">Scan</button>
-</div>
-</form>
-    <div id="footer">
-        <p>
-            Built during GSoC 2014 <a href="//owtf.github.io">OWTF</a>.
-        </p>
+        <div class="col-md-9">
+          <h1 class="fw-semibold">Online Passive Scanner</h1>
+          <p class="text-muted mb-0">
+            Version 1.0.1 · Release <strong>Lionheart</strong>
+            <span class="visually-hidden" id="seed">2NfaMaxkF_</span>
+          </p>
+        </div>
+      </header>
+      <section id="targetbar" class="row mb-4">
+        <div class="col">
+          <h2 class="h4">Enter the target URL</h2>
+          <p class="text-muted">
+            Paste the URL you would like to review. We will generate a passive report using the
+            bundled sample data.
+          </p>
+        </div>
+      </section>
+      <form class="row gy-3" novalidate>
+        <div class="col-lg-8">
+          <label class="form-label" for="q">Target URL</label>
+          <input
+            type="url"
+            id="q"
+            name="q"
+            class="form-control form-control-lg"
+            placeholder="https://www.example.com"
+            autocomplete="url"
+            required
+          />
+          <p id="error" class="error-message text-danger mt-2" role="alert"></p>
+        </div>
+        <div class="col-lg-4 d-flex align-items-end">
+          <button type="submit" class="btn btn-primary btn-lg w-100" id="submit">Generate report</button>
+        </div>
+      </form>
+      <footer id="footer" class="mt-5 text-muted">
+        Built during GSoC 2014 by the <a href="https://owtf.github.io/">OWTF team</a>.
+      </footer>
     </div>
- </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-     <script>
-      function validateInput()
-      {
-        var inp = document.getElementById('q');
-        var reg = new RegExp('[\\w$]');
-        var regx = new RegExp('[-.:/]');
-        d = inp.value;
-        for(i=0;i<d.length;i++) {
+    <script>
+      const form = document.querySelector("form");
+      const input = document.getElementById("q");
+      const errorMessage = document.getElementById("error");
 
-        if(!reg.test(d.charAt(i)))
-        {
-          if(!regx.test(d.charAt(i)))
-          {
-            alert("Please Enter a valid Target URL");
-            return ;
-          }
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        errorMessage.style.display = "none";
+        errorMessage.textContent = "";
+
+        const value = input.value.trim();
+        if (!value) {
+          errorMessage.textContent = "Please enter a URL to continue.";
+          errorMessage.style.display = "block";
+          input.focus();
+          return;
         }
+
+        try {
+          const parsed = new URL(value);
+          const destination = new URL("report.html", window.location.href);
+          destination.hash = `q=${encodeURIComponent(parsed.href)}`;
+          window.location.assign(destination.toString());
+        } catch (error) {
+          errorMessage.textContent = "The value provided is not a valid URL. Please check and try again.";
+          errorMessage.style.display = "block";
+          input.focus();
         }
-        window.location.href="report.html#q="+d
-     }
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
