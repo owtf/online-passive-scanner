@@ -71,9 +71,13 @@
       }
     </style>
     <script>
-      const host = "owtf.github.io/online-passive-scanner";
-      if (host === window.location.host && window.location.protocol !== "https:") {
-        window.location.protocol = "https:";
+      const isGithubPages =
+        window.location.hostname === "owtf.github.io" &&
+        window.location.pathname.startsWith("/online-passive-scanner");
+
+      if (isGithubPages && window.location.protocol === "http:") {
+        const { host, pathname, search, hash } = window.location;
+        window.location.replace(`https://${host}${pathname}${search}${hash}`);
       }
     </script>
   </head>
