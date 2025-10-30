@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="includes/css/flat-ui.css">-->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/2.3.1/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/2.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <script language="javascript" type="text/javascript">
-      var host = "owtf.github.io/online-passive-scanner";
-      if ((host == window.location.host) && (window.location.protocol != "https:"))
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
+    <script type="text/javascript">
+      const host = "owtf.github.io/online-passive-scanner";
+      if (host === window.location.host && window.location.protocol !== "https:") {
         window.location.protocol = "https:";
-        
-        var parameters = location.hash.substring(1).split("&");
-        var k = parameters[0];
-        var temp = k.split("=");
-        q = temp[1];
-        var date = new Date();
+      }
+
+      const parameters = window.location.hash.substring(1).split("&");
+      const [keyValue] = parameters;
+      const [, rawQuery = ""] = (keyValue || "").split("=");
+      window.q = decodeURIComponent(rawQuery || "");
+      window.date = new Date();
 
         function subDomain(url)
         {
@@ -124,19 +123,50 @@
             scheme = 'http://';
         }
 
-        var url = "http://util.owtf.org/owtf/ip.php?domain=" +encodeURI(q);
-        var http = new XMLHttpRequest();
-        var ip=''
-        http.open("GET", url, true);
-        http.responseType = "text";
-        http.onreadystatechange = function()
-        {
-            if(http.readyState == 4 && http.status == 200)
-            {
-                ip = http.responseText
+        var ip='Resolving…';
+        (function resolveIp(target) {
+            if (!target) {
+                ip = 'Unavailable';
+                if (window.jQuery) {
+                    jQuery('.ip_url').text(ip);
+                }
+                return;
             }
-        }
-        http.send(null);
+            var lookup = encodeURIComponent(target);
+            fetch('https://dns.google/resolve?name=' + lookup)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(function(payload) {
+                    if (payload.Answer && payload.Answer.length) {
+                        for (var i = 0; i < payload.Answer.length; i++) {
+                            var answer = payload.Answer[i];
+                            if (answer.type === 1 && answer.data) {
+                                ip = answer.data;
+                                if (window.jQuery) {
+                                    jQuery('.ip_url').text(ip);
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    if (!ip) {
+                        ip = 'Unavailable';
+                        if (window.jQuery) {
+                            jQuery('.ip_url').text(ip);
+                        }
+                    }
+                })
+                .catch(function() {
+                    ip = 'Unavailable';
+                    if (window.jQuery) {
+                        jQuery('.ip_url').text(ip);
+                    }
+                });
+        })(q);
     </script>
 
     <title>OWASP OWTF Report</title>
@@ -146,6 +176,45 @@
     <meta name="description" content="OWASP OWTF Report">
     <meta name="author" content="OWASP OWTF Team">
     <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .github-ribbon {
+            position: fixed;
+            top: 1rem;
+            right: -3.5rem;
+            display: block;
+            width: 12rem;
+            padding: 0.75rem 0;
+            background: linear-gradient(135deg, #1f2328, #24292f);
+            color: #f8fbff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+            transform-origin: top right;
+            box-shadow: 0 6px 12px rgba(15, 23, 42, 0.35);
+            z-index: 1000;
+        }
+
+        .github-ribbon:focus-visible {
+            outline: 2px solid #f0f6ff;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 576px) {
+            .github-ribbon {
+                width: 10rem;
+                right: -3rem;
+                font-size: 0.75rem;
+            }
+        }
+
         .nav-tabs-container {
             padding: 3px;
             border: 1px solid @grayLight;
@@ -155,12 +224,12 @@
 </head>
 <body>
        <div class="container">
-        <a href="https://github.com/owtf/online-passive-scanner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+        <a href="https://github.com/owtf/online-passive-scanner" aria-label="Fork me on GitHub" class="github-ribbon">Fork me on GitHub</a>
         <!-- start page header -->
         <div class="page-header row">
             <div class="col col-md-3">
                 <a href="http://www.owtf.org" >
-                    <img src="https://camo.githubusercontent.com/8aec8e41ae6063229d6bd875da348e3c3ae81538/68747470733a2f2f7777772e6f776173702e6f72672f696d616765732f372f37332f4f5754464c6f676f2e706e67" class="img-rounded" height="200" width="150" alt="OWASP_OWTF_LOGO">
+                    <img src="images/owtf-logo.svg" class="img-rounded" height="150" width="150" alt="OWASP OWTF Logo">
                 </a>
             </div>
             <div class="col col-md-9">
@@ -1046,8 +1115,8 @@
     </div></div></div>
 <!--  end footer -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
 <script>
     $('.tooltip_sidebar').tooltip();
@@ -1089,10 +1158,17 @@
     }
 </script>
 <script>
-    $(".q_url").text(q);
-    $(".ip_url").text(ip);
+    if (!q) {
+        $(".q_url").text('No target selected');
+        $(".ip_url").text('Unavailable');
+        $(".port_url").text('--');
+        $('#main').prepend('<div class="alert alert-warning"><strong>No target provided.</strong> Use the form on the landing page to generate a contextualised report.</div>');
+    } else {
+        $(".q_url").text(q);
+        $(".ip_url").text(ip);
+        $(".port_url").text(port);
+    }
     $(".date_url").text(date);
-    $(".port_url").text(port);
     // load subreports
     $(".subreport").each(function(){
         /*$.ajax({

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">OWTF Project Logo</title>
+  <desc id="desc">Circular emblem featuring the letters OWTF</desc>
+  <defs>
+    <linearGradient id="ring" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#003d7a"/>
+      <stop offset="100%" stop-color="#0091d0"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="0%" x2="100%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#0c1a36"/>
+      <stop offset="100%" stop-color="#1b3b6f"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#ring)"/>
+  <circle cx="60" cy="60" r="44" fill="#0a172d" stroke="url(#inner)" stroke-width="6"/>
+  <g fill="#f8fbff" font-family="'Segoe UI', Tahoma, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="60" y="58" font-size="28">OW</text>
+    <text x="60" y="88" font-size="28">TF</text>
+  </g>
+</svg>
